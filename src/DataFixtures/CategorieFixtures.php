@@ -12,7 +12,7 @@ class CategorieFixtures extends Fixture
     {
         // $product = new Product();
         // $manager->persist($product);
-        $categories = ['Jaux vidéos', 'Smartphone', 'Écran', 'Câbles', 'Télévision', 'Électroménager'];
+        $categories = ['Jeux vidéos', 'Smartphone', 'Écran', 'Câbles', 'Télévision', 'Électroménager'];
 
         foreach ($categories as $categorie) {
             $cat = new Categorie();
