@@ -41,14 +41,9 @@ class Utilisateur
      */
     private $dateInscription;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Conversation::class, mappedBy="expediteur")
-     */
-    private $conversations;
 
     public function __construct()
     {
-        $this->conversations = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -100,33 +95,6 @@ class Utilisateur
     public function setDateInscription(\DateTimeInterface $dateInscription): self
     {
         $this->dateInscription = $dateInscription;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Conversation[]
-     */
-    public function getConversations(): Collection
-    {
-        return $this->conversations;
-    }
-
-    public function addConversation(Conversation $conversation): self
-    {
-        if (!$this->conversations->contains($conversation)) {
-            $this->conversations[] = $conversation;
-            $conversation->addExpediteur($this);
-        }
-
-        return $this;
-    }
-
-    public function removeConversation(Conversation $conversation): self
-    {
-        if ($this->conversations->removeElement($conversation)) {
-            $conversation->removeExpediteur($this);
-        }
 
         return $this;
     }

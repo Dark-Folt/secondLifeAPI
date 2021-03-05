@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ApiResource()
  * @ORM\Entity(repositoryClass=AnnonceRepository::class)
+ * 
  */
 class Annonce
 {
@@ -53,6 +54,27 @@ class Annonce
      * @ORM\Column(type="boolean")
      */
     private $isValid;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $image;
+
+    /**
+     * @ORM\Column(type="string", length=25)
+     */
+    private $marque;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $brand;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $imageURL;
+
 
 
 
@@ -141,6 +163,54 @@ class Annonce
     public function setIsValid(bool $isValid): self
     {
         $this->isValid = $isValid;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    public function getMarque(): ?string
+    {
+        return $this->marque;
+    }
+
+    public function setMarque(string $marque): self
+    {
+        $this->marque = $marque;
+
+        return $this;
+    }
+
+    public function getBrand(): ?string
+    {
+        return $this->brand;
+    }
+
+    public function setBrand(string $brand): self
+    {
+        $this->brand = $brand;
+
+        return $this;
+    }
+
+    public function getImageURL(): ?string
+    {
+        return $this->imageURL;
+    }
+
+    public function setImageURL(string $imageURL): self
+    {
+        $this->imageURL = $imageURL;
 
         return $this;
     }
